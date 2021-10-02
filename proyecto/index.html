@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Patinetas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/misFunciones.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        
+</head>
+<body>
+    <h1 class="tituloGrande" align="center">PROYECTO PATINETAS</h1>
+    <hr>
+    <h4 class="tituloMediano" align="center">Elija la opción a ejecutar</h4>
+    <!-- <div id='resultado'></div> -->
+    <div id="botonesArriba" align="center">
+        <button onclick="traerInfoSkate()">Consultar Patinetas</button>
+        <button onclick="crearPatinetas()">Creación de Patinetas</button>
+        <button onclick="registrarClientes()">Registro de Clientes</button>
+        <button onclick="registrarMensajes()">Registro de Mensajes</button>
+    </div>
+    <br><br>
+    <table border="1" align="center"> 
+        <thead>
+            <tr>
+                <td class="centradoAzul" colspan="6">PATINETAS</td>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td>BRAND</td>
+                <td>MODEL</td>
+                <td>CATEGORY_ID</td>
+                <td>NAME</td>
+                <td>ACTIONS</td>
+            </tr>
+        </thead>
+        <tbody id='resultado'></tbody>
+    </table>
+    <br><br>
+    <div id="formularioPatinetas">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Creación de patinetas</td>
+            </tr>
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" id="id_skate" placeholder="id" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>BRAND:</td>
+                <td><input type="text" id="brand_skate" placeholder="brand" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>MODEL:</td>
+                <td><input type="number" id="model_skate" placeholder="model" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>CATEGORY_ID:</td>
+                <td><input type="number" id="category_id_skate" placeholder="category_id" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>NAME:</td>
+                <td><input type="text" id="name_skate" placeholder="name" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoSkate()">Guardar Patineta</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="formularioCliente">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Registro de Clientes</td>
+            </tr>
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" id="id" placeholder="id" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>BRAND:</td>
+                <td><input type="text" id="name" placeholder="brand" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>MODEL:</td>
+                <td><input type="number" id="model" placeholder="model" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>CATEGORY_ID:</td>
+                <td><input type="number" id="category_id" placeholder="category_id" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>NAME:</td>
+                <td><input type="text" id="name" placeholder="name" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInformacion()">Guardar Patineta</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="formularioMensaje">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Registro de Mensajes</td>
+            </tr>
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" id="id" placeholder="id" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>BRAND:</td>
+                <td><input type="text" id="brand" placeholder="brand" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>MODEL:</td>
+                <td><input type="number" id="model" placeholder="model" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>CATEGORY_ID:</td>
+                <td><input type="number" id="category_id" placeholder="category_id" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>NAME:</td>
+                <td><input type="text" id="name" placeholder="name" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInformacion()">Guardar Patineta</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <br><br>
+    <!-- <button onclick="editarInformacion()">Editar</button> -->
+</body>
+</html>
