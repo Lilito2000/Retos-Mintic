@@ -15,31 +15,7 @@
     font-size: 15px;
 }
 
-#formularioPatinetas{
-    float: left;
-    border:#968bd3 10px solid;
-    padding: 5px;
-    color: #fff;
-    width: 350px;
-    margin: 26px;
-    background:#10011a;
+.botonesOprimidos:focus{
+    background-color: #968bd3;
 }
-#formularioCliente{
-    float: left;
-    border:#968bd3 10px solid;
-    padding: 5px;
-    color: #fff;
-    width: 350px;
-    margin: 26px;
-    background:#10011a;
-}
-#formularioMensaje{
-    float: left;
-    border:#968bd3 10px solid;
-    padding: 5px;
-    color: #fff;
-    width: 350px;
-    margin: 26px;
-    background:#10011a;
-} 
 
