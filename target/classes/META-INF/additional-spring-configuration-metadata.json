@@ -1,8 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "sring.jpa.generate-ddl",
-      "type": "java.lang.String",
-      "description": "Description for sring.jpa.generate-ddl."
-  }
-] }
