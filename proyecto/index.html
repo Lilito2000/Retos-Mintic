@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Patinetas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/misFunciones.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        
+</head>
+<body>
+    <h1 class="tituloGrande" align="center">PROYECTO PATINETAS</h1>
+    <hr>
+    <h4 class="tituloMediano" align="center">Elija la opción a ejecutar</h4>
+    <!-- <div id='resultado'></div> -->
+    <div id="botonesArriba" align="center">
+        <button onclick="traerInfoSkate()" class="botonesOprimidos">Consultar Patinetas</button>
+        <button onclick="traerInfoClient()" class="botonesOprimidos">Consultar Clientes</button>
+        <button onclick="traerInfoMessage()" class="botonesOprimidos">Consultar Mensajes</button>
+    </div>
+    <br><br>
+    <div id="tablePatinetas">
+        <table border="1" align="center"> 
+            <thead>
+                <tr>
+                    <td class="centradoAzul" colspan="7">PATINETAS</td>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>BRAND</td>
+                    <td>MODEL</td>
+                    <td>CATEGORY_ID</td>
+                    <td>NAME</td>
+                    <td colspan="2" align="center">ACTIONS</td>
+                </tr>
+            </thead>
+            <tbody id='resultadoSkate'></tbody>
+        </table>
+    </div>
+    <div id="tableClientes">
+        <table border="1" align="center"> 
+            <thead>
+                <tr>
+                    <td class="centradoAzul" colspan="6">CLIENTES</td>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                    <td>EMAIL</td>
+                    <td>AGE</td>
+                    <td colspan="2" align="center">ACTIONS</td>
+                </tr>
+            </thead>
+            <tbody id='resultadoClient'></tbody>
+        </table>
+    </div>
+    <div id="tableMensajes">
+        <table border="1" align="center"> 
+            <thead>
+                <tr>
+                    <td class="centradoAzul" colspan="4">MENSAJES</td>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td>MESSAGETEXT</td>
+                    <td colspan="2" align="center">ACTIONS</td>
+                </tr>
+            </thead>
+            <tbody id='resultadoMessage'></tbody>
+        </table>
+    </div>
+    <br><br>
+    <div id="botonesAbajo" align="center">
+        <button onclick="mostrarFormularioSkate()" class="botonesOprimidos">Creación de Patinetas</button>
+        <button onclick="mostrarFormularioClient()" class="botonesOprimidos">Registro de Clientes</button>
+        <button onclick="mostrarFormularioMessage()" class="botonesOprimidos">Registro de Mensajes</button>
+    </div>
+    <br><br>
+    <div id="formularioPatinetas">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Creación de patinetas</td>
+            </tr>
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" id="id_skate" placeholder="idSkate" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>BRAND:</td>
+                <td><input type="text" id="brand_skate" placeholder="brand" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>MODEL:</td>
+                <td><input type="number" id="model_skate" placeholder="model" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>CATEGORY_ID:</td>
+                <td><input type="number" id="category_id_skate" placeholder="category_id" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>NAME:</td>
+                <td><input type="text" id="name_skate" placeholder="name" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoSkate()">Guardar</button>
+                    <button onclick="editarInfoSkate()">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="formularioCliente">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Registro de Clientes</td>
+            </tr>
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" id="id_client" placeholder="id" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>NAME:</td>
+                <td><input type="number" id="name_client" placeholder="name" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>EMAIL:</td>
+                <td><input type="number" id="email_client" placeholder="email" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>AGE:</td>
+                <td><input type="text" id="age_client" placeholder="age" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoClient()">Guardar</button>
+                    <button onclick="editarInfoClient()">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="formularioMensaje">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Registro de Mensajes</td>
+            </tr>
+            <tr>
+                <td>ID:</td>
+                <td><input type="number" id="id_message" placeholder="id" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>MESSAGE:</td>
+                <td><textarea name="messagetext_message" rows="5" cols="50" id="messagetext_message" autofocus></textarea></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoMessage()">Guardar</button>
+                    <button onclick="editarInfoMessage()">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <br><br>
+    <!-- <button onclick="editarInformacion()">Editar</button> -->
+</body>
+</html>

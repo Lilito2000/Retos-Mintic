@@ -1,0 +1,21 @@
+.centradoAzul{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    background-color: #968bd3;
+}
+
+.tituloGrande{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+}
+
+.tituloMediano{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+.botonesOprimidos:focus{
+    background-color: #968bd3;
+}
+
