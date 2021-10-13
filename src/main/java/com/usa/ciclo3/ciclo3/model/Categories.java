@@ -1,5 +1,7 @@
 package com.usa.ciclo3.ciclo3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -8,6 +10,7 @@ import java.io.Serializable;
 public class Categories implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @JsonIgnoreProperties({"idCategories"})
     private Integer idCategories;
 
     @Column(name="name", nullable=true, length= 45)
