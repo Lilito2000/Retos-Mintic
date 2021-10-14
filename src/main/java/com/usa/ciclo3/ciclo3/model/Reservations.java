@@ -1,40 +1,39 @@
 package com.usa.ciclo3.ciclo3.model;
 
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import ch.qos.logback.core.net.server.Client;
-
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="reservations")
+@Table(name = "reservations")
 public class Reservations implements Serializable {
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idReservation;
 	private Date startDate;
 	private Date devolutionDate;
 	private String status;
-	private String score=null;
-	
+	private String score = null;
+
 	@ManyToOne
-	@JoinColumn(name="client")
-	@JsonIgnoreProperties("client")
+	@JoinColumn(name = "idClient")
+	@JsonIgnoreProperties("idClient")
 	private Client client;
-	
+
 	@ManyToOne
-	@JoinColumn(name="skate")
-	@JsonIgnoreProperties("skate")
+	@JoinColumn(name = "id")
+	@JsonIgnoreProperties("id")
 	private Skateboard skate;
-	
-	
+
 	public Integer getIdReservation() {
 		return idReservation;
 	}
@@ -91,9 +90,4 @@ public class Reservations implements Serializable {
 		this.skate = skate;
 	}
 
-	
-	
-		
-	
-	
 }
