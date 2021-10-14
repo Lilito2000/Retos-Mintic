@@ -21,13 +21,13 @@ public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idClient;
-	@Column(length = 250)
-	private String name;
 	@Column(length = 45)
 	private String email;
 	@Column(length = 45)
 	@JsonIgnoreProperties("password")
 	private String password;
+	@Column(length = 250)
+	private String name;
 	@Column
 	private Integer age;
 
@@ -36,7 +36,7 @@ public class Client implements Serializable {
 	private List<Message> messages;
 
 	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
-	// @JsonIgnoreProperties("client")
+	 @JsonIgnoreProperties("client")
 	private List<Reservations> reservations;
 
 	public Integer getIdClient() {
@@ -85,5 +85,13 @@ public class Client implements Serializable {
 
 	public void setMessages(List<Message> messages) {
 		this.messages = messages;
+	}
+
+	public List<Reservations> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservations> reservations) {
+		this.reservations = reservations;
 	}
 }

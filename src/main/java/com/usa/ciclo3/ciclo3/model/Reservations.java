@@ -21,18 +21,19 @@ public class Reservations implements Serializable {
 	private Integer idReservation;
 	private Date startDate;
 	private Date devolutionDate;
-	private String status;
-	private String score = null;
+	private String status = "created";
 
 	@ManyToOne
-	@JoinColumn(name = "idClient")
-	@JsonIgnoreProperties("idClient")
+	@JoinColumn(name = "skateId")
+	@JsonIgnoreProperties({"reservations", "client"})
+	private Skateboard skate;
+
+	@ManyToOne
+	@JoinColumn(name = "ClientId")
+	@JsonIgnoreProperties({"messages", "reservations"})
 	private Client client;
 
-	@ManyToOne
-	@JoinColumn(name = "id")
-	@JsonIgnoreProperties("id")
-	private Skateboard skate;
+	private String score;
 
 	public Integer getIdReservation() {
 		return idReservation;
