@@ -24,16 +24,16 @@ public class Reservations implements Serializable {
 	private String status;
 	private String score=null;
 	
-	/*@ManyToOne
+	@ManyToOne
 	@JoinColumn(name="client")
 	@JsonIgnoreProperties("client")
-	private String client;
+	private Client client;
 	
 	@ManyToOne
 	@JoinColumn(name="skate")
 	@JsonIgnoreProperties("skate")
-	private String skate;
-	*/
+	private Skateboard skate;
+	
 	
 	public Integer getIdReservation() {
 		return idReservation;
@@ -75,7 +75,7 @@ public class Reservations implements Serializable {
 		this.score = score;
 	}
 
-	/*public String getClient() {
+	public Client getClient() {
 		return client;
 	}
 
@@ -83,14 +83,14 @@ public class Reservations implements Serializable {
 		this.client = client;
 	}
 
-	public String getSkate() {
+	public Skateboard getSkate() {
 		return skate;
 	}
 
-	public void setSkate(Skate skate) {
+	public void setSkate(Skateboard skate) {
 		this.skate = skate;
 	}
-*/
+
 	
 	
 		
