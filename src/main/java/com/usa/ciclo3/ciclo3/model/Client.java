@@ -21,13 +21,12 @@ public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idClient;
-	@Column(length = 250)
-	private String name;
 	@Column(length = 45)
 	private String email;
 	@Column(length = 45)
 	@JsonIgnoreProperties("password")
-	private String password;
+	private String password;@Column(length = 250)
+	private String name;
 	@Column
 	private Integer age;
 
