@@ -39,7 +39,6 @@ public class Client implements Serializable {
 	 @JsonIgnoreProperties("client")
 	private List<Reservations> reservations;
 
-	
 	public Integer getIdClient() {
 		return idClient;
 	}
@@ -87,6 +86,7 @@ public class Client implements Serializable {
 	public void setMessages(List<Message> messages) {
 		this.messages = messages;
 	}
+
 	public List<Reservations> getReservations() {
 		return reservations;
 	}

@@ -4,16 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,7 +16,7 @@ public class Message implements Serializable {
 	private Integer idMessage;
 	@Column(length = 250)
 	private String messageText;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "skateId")
 	@JsonIgnoreProperties({"messages", "reservations"})
@@ -34,7 +24,7 @@ public class Message implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "clientId")
-	@JsonIgnoreProperties({"messages","reservations"})
+	@JsonIgnoreProperties({"messages", "reservations"})
 	private Client client;
 
 	public Integer getIdMessage() {

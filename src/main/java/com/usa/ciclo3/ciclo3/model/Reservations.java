@@ -1,7 +1,7 @@
 package com.usa.ciclo3.ciclo3.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,18 +19,18 @@ public class Reservations implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idReservation;
-	private Date startDate;
-	private Date devolutionDate;
+	private Timestamp startDate;
+	private Timestamp devolutionDate;
 	private String status = "created";
 
 	@ManyToOne
 	@JoinColumn(name = "skateId")
-	@JsonIgnoreProperties({ "reservations", "client" })
+	@JsonIgnoreProperties({"reservations", "client"})
 	private Skateboard skate;
 
 	@ManyToOne
 	@JoinColumn(name = "ClientId")
-	@JsonIgnoreProperties({ "messages", "reservations" })
+	@JsonIgnoreProperties({"messages", "reservations"})
 	private Client client;
 
 	private String score;
@@ -43,19 +43,19 @@ public class Reservations implements Serializable {
 		this.idReservation = idReservation;
 	}
 
-	public Date getStartDate() {
+	public Timestamp getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(Timestamp startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getDevolutionDate() {
+	public Timestamp getDevolutionDate() {
 		return devolutionDate;
 	}
 
-	public void setDevolutionDate(Date devolutionDate) {
+	public void setDevolutionDate(Timestamp devolutionDate) {
 		this.devolutionDate = devolutionDate;
 	}
 
