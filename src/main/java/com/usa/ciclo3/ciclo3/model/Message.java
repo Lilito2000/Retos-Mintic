@@ -26,7 +26,7 @@ public class Message implements Serializable {
 	private String messageText;
 	
 	@ManyToOne
-	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
+	@JoinColumn(name = "id")
 	@JsonIgnoreProperties({"client","reservations"})
 	private Skateboard skate;
 

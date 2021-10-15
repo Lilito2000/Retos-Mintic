@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -25,12 +26,12 @@ public class Reservations implements Serializable {
 	private String status = "created";
 
 	@ManyToOne
-	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
+	@JoinColumn(name = "id")
 	@JsonIgnoreProperties({ "client", "reservations" })
 	private Skateboard skate;
 
 	@ManyToOne
-	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
+	@JoinColumn(name = "clientId")
 	@JsonIgnoreProperties({ "messages", "reservations" })
 	private Client client;
 

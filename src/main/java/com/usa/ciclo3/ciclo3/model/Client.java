@@ -25,7 +25,8 @@ public class Client implements Serializable {
 	private String email;
 	@Column(length = 45)
 	@JsonIgnoreProperties("password")
-	private String password;@Column(length = 250)
+	private String password;
+	@Column(length = 250)
 	private String name;
 	@Column
 	private Integer age;
