@@ -1,16 +1,14 @@
 package com.usa.ciclo3.ciclo3.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Timestamp;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -21,21 +19,21 @@ public class Reservations implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idReservation;
-	private Date startDate;
-	private Date devolutionDate;
+	private Timestamp startDate;
+	private Timestamp devolutionDate;
 	private String status = "created";
 
 	@ManyToOne
-	@JoinColumn(name = "id")
-	@JsonIgnoreProperties({ "client", "reservations" })
+	@JoinColumn(name = "skateId")
+	@JsonIgnoreProperties({ "reservations", "client" })
 	private Skateboard skate;
 
 	@ManyToOne
-	@JoinColumn(name = "clientId")
+	@JoinColumn(name = "ClientId")
 	@JsonIgnoreProperties({ "messages", "reservations" })
 	private Client client;
 
-	private String score = null;
+	private String score;
 
 	public Integer getIdReservation() {
 		return idReservation;
@@ -45,19 +43,19 @@ public class Reservations implements Serializable {
 		this.idReservation = idReservation;
 	}
 
-	public Date getStartDate() {
+	public Timestamp getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(Timestamp startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getDevolutionDate() {
+	public Timestamp getDevolutionDate() {
 		return devolutionDate;
 	}
 
-	public void setDevolutionDate(Date devolutionDate) {
+	public void setDevolutionDate(Timestamp devolutionDate) {
 		this.devolutionDate = devolutionDate;
 	}
 

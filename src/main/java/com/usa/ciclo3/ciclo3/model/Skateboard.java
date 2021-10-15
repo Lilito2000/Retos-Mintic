@@ -32,14 +32,18 @@ public class Skateboard implements Serializable {
 	@JsonIgnoreProperties("skates")
 	private Category category;
 
-	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
-	@JsonIgnoreProperties("client")
+	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "skate")
+	@JsonIgnoreProperties({ "skate", "client" })
 	private List<Message> messages;
-	
-	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
-	private List<Reservations> reservations;
 
-	
+	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "skate")
+	@JsonIgnoreProperties({ "skate", "client" })
+	private List<Reservations> reservations;
+//
+//	@ManyToOne
+//	@JoinColumn(name = "categoryId")
+//	@JsonIgnoreProperties("skates")
+//	private Category category;
 
 	public Integer getId() {
 		return id;
@@ -88,7 +92,7 @@ public class Skateboard implements Serializable {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
+
 	public List<Message> getMessages() {
 		return messages;
 	}
@@ -104,7 +108,4 @@ public class Skateboard implements Serializable {
 	public void setReservations(List<Reservations> reservations) {
 		this.reservations = reservations;
 	}
-
-	
-
 }
