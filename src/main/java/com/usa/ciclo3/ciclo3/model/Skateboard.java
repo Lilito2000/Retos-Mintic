@@ -33,6 +33,7 @@ public class Skateboard implements Serializable {
 	private Category category;
 
 	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
+	@JsonIgnoreProperties("client")
 	private List<Message> messages;
 	
 	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")

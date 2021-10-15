@@ -1,14 +1,13 @@
 package com.usa.ciclo3.ciclo3.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -23,20 +22,18 @@ public class Reservations implements Serializable {
 	private Integer idReservation;
 	private Date startDate;
 	private Date devolutionDate;
-	private String status="created";
-	
+	private String status = "created";
 
 	@ManyToOne
 	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
-	@JsonIgnoreProperties({"client","reservations"})
+	@JsonIgnoreProperties({ "client", "reservations" })
 	private Skateboard skate;
-	
+
 	@ManyToOne
 	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "client")
-	@JsonIgnoreProperties({"messages","reservations"})
+	@JsonIgnoreProperties({ "messages", "reservations" })
 	private Client client;
 
-	
 	private String score = null;
 
 	public Integer getIdReservation() {
