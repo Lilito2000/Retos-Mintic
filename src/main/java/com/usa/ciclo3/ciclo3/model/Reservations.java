@@ -1,40 +1,40 @@
 package com.usa.ciclo3.ciclo3.model;
 
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import ch.qos.logback.core.net.server.Client;
-
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="reservations")
+@Table(name = "reservations")
 public class Reservations implements Serializable {
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idReservation;
 	private Date startDate;
 	private Date devolutionDate;
-	private String status;
-	private String score=null;
-	
-	/*@ManyToOne
-	@JoinColumn(name="client")
-	@JsonIgnoreProperties("client")
-	private String client;
-	
+	private String status = "created";
+
 	@ManyToOne
-	@JoinColumn(name="skate")
-	@JsonIgnoreProperties("skate")
-	private String skate;
-	*/
-	
+	@JoinColumn(name = "skateId")
+	@JsonIgnoreProperties({"reservations", "client"})
+	private Skateboard skate;
+
+	@ManyToOne
+	@JoinColumn(name = "ClientId")
+	@JsonIgnoreProperties({"messages", "reservations"})
+	private Client client;
+
+	private String score;
+
 	public Integer getIdReservation() {
 		return idReservation;
 	}
@@ -75,7 +75,7 @@ public class Reservations implements Serializable {
 		this.score = score;
 	}
 
-	/*public String getClient() {
+	public Client getClient() {
 		return client;
 	}
 
@@ -83,17 +83,12 @@ public class Reservations implements Serializable {
 		this.client = client;
 	}
 
-	public String getSkate() {
+	public Skateboard getSkate() {
 		return skate;
 	}
 
-	public void setSkate(Skate skate) {
+	public void setSkate(Skateboard skate) {
 		this.skate = skate;
 	}
-*/
-	
-	
-		
-	
-	
+
 }

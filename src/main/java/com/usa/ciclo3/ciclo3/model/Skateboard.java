@@ -1,14 +1,11 @@
 package com.usa.ciclo3.ciclo3.model;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Skate")
@@ -24,7 +21,21 @@ public class Skateboard implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "categoryId")
-	private Categories category;
+	@JsonIgnoreProperties("skates")
+	private Category category;
+
+	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "skate")
+	@JsonIgnoreProperties("skate")
+	private List<Message> messages;
+
+	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "skate")
+	@JsonIgnoreProperties("skate")
+	private List<Reservations> reservations;
+//
+//	@ManyToOne
+//	@JoinColumn(name = "categoryId")
+//	@JsonIgnoreProperties("skates")
+//	private Category category;
 
 	public Integer getId() {
 		return id;
@@ -66,11 +77,27 @@ public class Skateboard implements Serializable {
 		this.description = description;
 	}
 
-	public Categories getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(Categories category) {
+	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+
+	public List<Reservations> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservations> reservations) {
+		this.reservations = reservations;
 	}
 }
