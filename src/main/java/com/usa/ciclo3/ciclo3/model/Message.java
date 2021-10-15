@@ -1,9 +1,15 @@
 package com.usa.ciclo3.ciclo3.model;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -19,12 +25,12 @@ public class Message implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "skateId")
-	@JsonIgnoreProperties({"messages", "reservations"})
+	@JsonIgnoreProperties({ "messages", "reservations" })
 	private Skateboard skate;
 
 	@ManyToOne
 	@JoinColumn(name = "clientId")
-	@JsonIgnoreProperties({"messages", "reservations"})
+	@JsonIgnoreProperties({ "messages", "reservations" })
 	private Client client;
 
 	public Integer getIdMessage() {
@@ -50,7 +56,6 @@ public class Message implements Serializable {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-
 
 	public Skateboard getSkate() {
 		return skate;
