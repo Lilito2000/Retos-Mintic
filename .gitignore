@@ -35,9 +35,4 @@ build/
 =======
 
 ## PROYECTO ##
-src/main/resources
-<<<<<<< HEAD
->>>>>>> 8b6f0a2027c2ee4d2d00e44fd83d245e3564a5ed
-=======
->>>>>>> 8b6f0a2027c2ee4d2d00e44fd83d245e3564a5ed
->>>>>>> 44f9e39ea2ca0933633744e1f56262ec5c44fa63
+src/main/resources/application.properties
