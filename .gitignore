@@ -35,7 +35,7 @@ build/
 =======
 
 ## PROYECTO ##
-src/main/resources
+src/main/resources/application.properties
 <<<<<<< HEAD
 >>>>>>> 8b6f0a2027c2ee4d2d00e44fd83d245e3564a5ed
 =======
