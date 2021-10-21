@@ -1,4 +1,4 @@
-package com.usa.ciclo3.ciclo3.web;
+package com.usa.ciclo3.ciclo3.security;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,12 +11,11 @@ public class SecurityAdaptor extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(a -> a
-                .antMatchers("/", "/error", "/webjars/**", "/Reservation/**", "/Client/**", "/Skate/**",
-                        "/Message/**", "/Category/**", "/Score/**", "/Administrators/**").permitAll()
+                .antMatchers("/", "/error", "/webjars/**", "/api/**").permitAll()
                 .anyRequest().authenticated()
         ).exceptionHandling(e -> e
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
-        ).oauth2Login();
+        ).oauth2Login().defaultSuccessUrl("/",true);
 
         http.cors().and().csrf().disable();
     }
