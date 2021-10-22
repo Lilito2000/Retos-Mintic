@@ -38,4 +38,34 @@ public class AdministratorsUsersService {
 
 		}
 	}
+
+	public AdministratorsUsers update(AdministratorsUsers admin){
+        if(admin.getIdAdminUser()!=null){
+            Optional<AdministratorsUsers> adminEjemplo=administratorsUsersRepository.getAdministratorUser(admin.getIdAdminUser());
+            if(!adminEjemplo.isEmpty()){
+                if(admin.getUserName()!=null){
+                    adminEjemplo.get().setUserName(admin.getUserName());
+                }
+                if(admin.getUserPassword()!=null){
+                    adminEjemplo.get().setUserPassword(admin.getUserPassword());
+                }
+                administratorsUsersRepository.save(adminEjemplo.get());
+                return adminEjemplo.get();
+            }
+            else{
+                return admin;
+            }
+        }
+        else{
+            return admin;
+        }
+    }
+
+	 public boolean deleteAdmin(int id){
+	        Boolean aBoolean = getAdministratorUser(id).map(admin -> {
+	        	administratorsUsersRepository.delete(admin);
+	            return true;
+	        }).orElse(false);
+	        return aBoolean;
+	    }
 }

@@ -17,49 +17,41 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.usa.ciclo3.ciclo3.model.Message;
-import com.usa.ciclo3.ciclo3.service.MessageService;
-
-/**
- *
- * @author lilia
- */
+import com.usa.ciclo3.ciclo3.model.Score;
+import com.usa.ciclo3.ciclo3.service.ScoreService;
 
 @RestController
-@RequestMapping("/api/Message")
+@RequestMapping("/api/Score")
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
 		RequestMethod.DELETE })
-public class MessageController {
+public class ScoreController {
 
 	@Autowired
-	private MessageService messageService;
+	private ScoreService scoreService;
 
 	@GetMapping("/all")
-	public List<Message> getMessage() {
-		return messageService.getAll();
-
+	public List<Score> getScores() {
+		return scoreService.getAll();
 	}
 
 	@GetMapping("/{id}")
-	public Optional<Message> getMessage(@PathVariable("id") int id) {
-		return messageService.getMessage(id);
-
+	public Optional<Score> getScore(@PathVariable("id") int id) {
+		return scoreService.getScore(id);
 	}
 
 	@PostMapping("/save")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Message save(@RequestBody Message mensaje) {
-		return messageService.save(mensaje);
+	public Score saveScore(@RequestBody Score score) {
+		return scoreService.save(score);
 	}
 
 	@PutMapping("/update")
-	public Message updateMessage(@RequestBody Message message) {
-		return messageService.update(message);
+	public Score updateScore(@RequestBody Score score) {
+		return scoreService.update(score);
 	}
 
 	@DeleteMapping("/{id}")
-	public boolean deleteMessage(@PathVariable("id") int messageId) {
-		return messageService.deleteMessage(messageId);
+	public boolean deleteScore(@PathVariable("id") int scoreId) {
+		return scoreService.deleteSkate(scoreId);
 	}
-
 }

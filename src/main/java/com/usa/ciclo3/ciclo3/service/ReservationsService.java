@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.usa.ciclo3.ciclo3.model.Reservations;
@@ -40,26 +39,36 @@ public class ReservationsService {
 		}
 	}
 
-	public Reservations update(Reservations reserv) {
-		if (reserv.getIdReservation() != null) {
-
-			Optional<Reservations> reserveAuxOptional = reservationsRepository
-					.getRegistranion(reserv.getIdReservation());
-			if (!reserveAuxOptional.isEmpty()) {
-				return reservationsRepository.update(reserv);
+	public Reservations update(Reservations reservation) {
+		if (reservation.getIdReservation() != null) {
+			Optional<Reservations> reservationEjemplo = reservationsRepository
+					.getRegistranion(reservation.getIdReservation());
+			if (!reservationEjemplo.isEmpty()) {
+				if (reservation.getStartDate() != null) {
+					reservationEjemplo.get().setStartDate(reservation.getStartDate());
+				}
+				if (reservation.getDevolutionDate() != null) {
+					reservationEjemplo.get().setDevolutionDate(reservation.getDevolutionDate());
+				}
+				if (reservation.getStatus() != null) {
+					reservationEjemplo.get().setStatus(reservation.getStatus());
+				}
+				reservationsRepository.save(reservationEjemplo.get());
+				return reservationEjemplo.get();
 			} else {
-				return reserv;
+				return reservation;
 			}
-
 		} else {
-			return reserv;
+			return reservation;
 		}
 	}
 
-	public ResponseEntity<Long> delete(int id) {
-				return reservationsRepository.delete(id);
-			
+	public boolean deleteReservation(int id) {
+		Boolean aBoolean = getResevation(id).map(reservation -> {
+			reservationsRepository.delete(reservation);
+			return true;
+		}).orElse(false);
+		return aBoolean;
+	}
 
-		}
-	
 }

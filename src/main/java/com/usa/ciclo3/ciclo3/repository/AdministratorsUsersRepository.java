@@ -29,4 +29,9 @@ public class AdministratorsUsersRepository {
 		return administratorsUsersCrudRepository.save(r);
 	}
 
+	public void delete(AdministratorsUsers admin) {
+		administratorsUsersCrudRepository.delete(admin);
+
+	}
+
 }
