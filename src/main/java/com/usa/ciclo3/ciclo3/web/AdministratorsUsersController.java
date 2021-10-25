@@ -21,7 +21,7 @@ import com.usa.ciclo3.ciclo3.model.AdministratorsUsers;
 import com.usa.ciclo3.ciclo3.service.AdministratorsUsersService;
 
 @RestController
-@RequestMapping("/api/Administrators")
+@RequestMapping("/api/Admin")
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
 		RequestMethod.DELETE })
 public class AdministratorsUsersController {
