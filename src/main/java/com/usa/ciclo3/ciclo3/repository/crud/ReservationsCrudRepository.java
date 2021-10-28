@@ -12,7 +12,7 @@ public interface ReservationsCrudRepository extends CrudRepository<Reservations,
     
     public List<Reservations> findAllByStartDateAfterAndStartDateBefore(Date dateOne, Date dateTwo);
     
-    //select clientId, count(*) as "total" from reservations group by clienteId order by total desc;
+    
     @Query ("SELECT c.client, COUNT(c.client) from Reservations AS c group by c.client order by COUNT(c.client)DESC")
     public List<Object[]> countTotalReservationsByClient();
     
