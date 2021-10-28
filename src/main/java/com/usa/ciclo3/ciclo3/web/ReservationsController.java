@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usa.ciclo3.ciclo3.model.Reservations;
+import com.usa.ciclo3.ciclo3.repository.ContadorClientes;
+import com.usa.ciclo3.ciclo3.repository.StatusReservas;
 import com.usa.ciclo3.ciclo3.service.ReservationsService;
 
 @RestController
@@ -60,4 +62,16 @@ public class ReservationsController {
 	public boolean delete(@PathVariable("id") int id) {
 		return reservationService.deleteReservation(id);
 	}
+        @GetMapping("/report-status")
+        public StatusReservas getReservas(){
+            return reservationService.getReporteEstatusReservaciones();
+        }
+        @GetMapping("report-dates/{dateOne}/{dateTwo")
+        public List<Reservations> getReservasTiempo (@PathVariable("dateOne")String dateOne, @PathVariable("dateTwo")String dateTwo){
+            return reservationService.getReportesTiempoReservaciones(dateOne, dateTwo);
+    }
+        @GetMapping("/report-clients")
+        public List<ContadorClientes> getClientes(){
+            return reservationService.servicioTopClientes();
+        }
 }

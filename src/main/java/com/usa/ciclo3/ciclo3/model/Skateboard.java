@@ -68,7 +68,11 @@ public class Skateboard implements Serializable {
 	/**
 	 * Atributo description: descripcion de la patinenta
 	 */
-	@Column(length = 250)
+	
+        
+        
+        
+        @Column(length = 250)
 	private String description;
 
 	/**
